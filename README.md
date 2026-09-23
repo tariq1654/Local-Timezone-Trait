@@ -15,7 +15,7 @@ Copy the file inside the app/Traits/ directory of your Laravel application
 2. Implement in Your Models
 Import the trait inside any Eloquent model where you want localized timestamps:
 
-<?php
+```<?php
 
 namespace App\Models;
 
@@ -28,3 +28,4 @@ class User extends Model
 
     // Rest code goes here...
 }
+```

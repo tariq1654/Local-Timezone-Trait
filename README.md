@@ -4,7 +4,6 @@ This trait enables you to completely eliminate the need to write repetitive conv
 
 ## Features:
 * DRY Approach (Don't Repeat Yourself): No need to manually convert timezones in every blade file or controller query.
-* Fully Configurable: Dynamically syncs with your .env or config/app.php timezone settings.
 * Standard Database Storage: Keeps your database clean using UTC standard, while seamlessly rendering local time to end-users.
 * Plug & Play: Requires only a single line of code inside your Eloquent models to take effect.
 

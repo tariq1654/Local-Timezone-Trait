@@ -2,16 +2,29 @@
 
 namespace App\Traits;
 
-trait viewLocalTimezoneTrait
+use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Casts\Attribute;
+
+trait ViewLocalTimezoneTrait
 {
     // Set your timezone
-    private $myTime = 'Asia/Dhaka';
+    protected string $myTimezone = 'Asia/Dhaka';
 
-    protected function casts(): array
+    protected function createdAt(): Attribute
     {
-        return [
-            'created_at' => 'datetime:' . $this->myTime,
-            'updated_at' => 'datetime:' . $this->myTime,
-        ];
+        return Attribute::make(
+            get: fn ($value) => $value
+                ? Carbon::parse($value)->timezone($this->myTimezone)
+                : null,
+        );
+    }
+
+    protected function updatedAt(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) => $value
+                ? Carbon::parse($value)->timezone($this->myTimezone)
+                : null,
+        );
     }
 }
